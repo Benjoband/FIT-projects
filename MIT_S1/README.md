@@ -1,12 +1,12 @@
 # Semester Overview
-## MIT-S1 – Master, Semester 2
-### AVS - Architektury výpočetních systémů / Computation Systems Architectures
+
+## AVS - Architektury výpočetních systémů / Computation Systems Architectures
 - **Project: Paralelisation of algortihm using OpenMP**
   - _Description:_ Parallelise following algorithms - Marching cubes and Octree variant. And test it on Barbora computer in Ostrava
   - _Languages:_ C++, OpenMP
   - _Score:_ 17.05/20
 
-### MSP - Statistika a pravděpodobnost / Statistics and Probability
+## MSP - Statistika a pravděpodobnost / Statistics and Probability
 - **Project 1: Data analysis**
   - _Description:_ Descriptive analysis, data preparation, analysis and efectivness of algorithm configurations.
   - _Languages:_ Python
@@ -16,7 +16,7 @@
   - _Languages:_ Python
   - _Score:_ 12/12
 
-### SUI - Umělá inteligence a strojové učení / Artificial Intelligence and Machine Learning
+## SUI - Umělá inteligence a strojové učení / Artificial Intelligence and Machine Learning
 - All projects done in team with github.com/Omegabee
 - **Project 1: Predicting Dicewars Game Outcomes Using Binary Classification**
   - _Description:_ Evaluating binary classification models to predict the outcome of the board game Dicewars based on game state features.

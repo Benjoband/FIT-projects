@@ -1,11 +1,10 @@
 # Semester Overview
-## MIT-S2 – Master, Semester 2
-### BZA - Bezpečná zařízení / Secure Hardware Devices
+## BZA - Bezpečná zařízení / Secure Hardware Devices
 - **Project: Attacks using speculative execution of processor instructions**
   - _Description:_ Research  of the topic.
   - _Score:_ X/30
 
-### FLP - Funkční a logické programování / Functional and Logic Programming
+## FLP - Funkční a logické programování / Functional and Logic Programming
 - **Project 1: Decision trees**
   - _Description:_ Implementation of reading and training of decision trees in haskell.
   - _Languages:_ Haskell
@@ -15,13 +14,13 @@
   - _Languages:_ Prolog
   - _Score:_ 8/8
 
-### FYO - Fyzikální optika - Physical Optics
+## FYO - Fyzikální optika - Physical Optics
 - **Project: Fiber Optics**
   - _Description:_ Research and visualisation of the topic.
   - _Languages:_ C++ - SFML
   - _Score:_ 26/30
 
-### PRL - Paralelní a distribuované algoritmy / Parallel and Distributed Algorithms
+## PRL - Paralelní a distribuované algoritmy / Parallel and Distributed Algorithms
 - **Project 1: Odd-even transposition sort**
   - _Description:_ Implementation of parallel algorithm - odd-even transposition sort using MPI parallelisation.
   - _Languages:_ C++, MPI
@@ -31,7 +30,7 @@
   - _Languages:_ C++, MPI
   - _Score:_ 10/10
 
-### TOI - Principy a návrh IoT systémů / Principles and Design of IoT
+## TOI - Principy a návrh IoT systémů / Principles and Design of IoT
 - **Project 1: ESP32 IOT system**
   - _Description:_ Implementation of webserver and sensor node using 2 ESP32 boards and using ESP-NOW for communication.
   - _Languages:_ C++, ESP-IDF 5.3.2
@@ -41,7 +40,7 @@
   - _Languages:_ Python
   - _Score:_ 11.5/12
 
-### KKO - Kódování a komprese dat / Data Coding and Compression
+## KKO - Kódování a komprese dat / Data Coding and Compression
 - **Project: Compression of gray tone photographs**
   - _Description:_ Application for compression of photographs with only grey tone colors, using different compression methods and comparison of these methods.
   - _Languages:_ C++
