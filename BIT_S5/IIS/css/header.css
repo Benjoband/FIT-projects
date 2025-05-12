@@ -1,0 +1,165 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito';
+    background-color: #303030;
+    color: #fff;
+}
+
+.header {
+    background-color: #1a1a1a;
+    width: 100% - 10px;
+    padding: 20px;
+    height: 20%;
+}
+
+.header-table {
+    background-color: #1a1a1a;
+    width: 100%;
+}
+
+.logo-column {
+    width: 20%;
+}
+
+.header-picture {
+    width: 80px;
+    height: 80px;
+}
+
+.buttons-column {
+    width: 60%;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: flex-end;
+    /* Align to the bottom */
+    justify-content: center;
+    /* Center horizontally */
+}
+
+.header-button {
+    color: #fff;
+    padding: 15px 20px;
+    border: 1px solid #cccccc31;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.header-button:hover {
+    background-color: #2980b9;
+    /* Darker background on hover */
+    border-color: #999;
+    /* Darker border on hover */
+}
+
+.profile-info-column {
+    width: 20%;
+    text-align: right;
+}
+
+.user-buttons {
+    align-items: flex-end;
+    justify-content: center;
+    color: #fff;
+    padding: 15px 20px;
+    border: 1px solid #cccccc31;
+    cursor: pointer;
+    text-align: center;
+    background-color: #1a1a1a;
+    width: 50%;
+}
+
+.user-info {
+    text-align: right;
+}
+
+.user-name {
+    font-size: 1.5em;
+    margin-bottom: 0;
+}
+
+.user-email {
+    margin: 0;
+}
+
+.user-logout {
+    align-items: flex-end;
+    justify-content: center;
+    color: #fff;
+    padding: 15px 20px;
+    border: 1px solid #cccccc31;
+    cursor: pointer;
+    text-align: center;
+    background-color: #1a1a1a;
+    margin-top: 3%;
+    width: 50%;
+}
+
+.header-buttons {
+    position: relative;
+}
+
+.header-sub-buttons {
+    display: none;
+    position: absolute;
+    background-color: #1a1a1a;
+    border: 1px solid #cccccc31;
+    flex-direction: row;
+    /* Display buttons horizontally */
+    top: 100%;
+    /* Position the sub-buttons below the text */
+}
+
+.header-sub-button {
+    color: #fff;
+    padding: 15px;
+    /* Adjust padding as needed */
+    border: 1px solid #cccccc31;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    box-sizing: border-box;
+    width: 100px;
+    /* Ensure padding is included in the width */
+}
+
+.header-sub-button:hover {
+    background-color: #2980b9;
+}
+
+.flash-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    transform: translate(-50%, -50%);
+    background-color: #3498db;
+    border: 1px #1a1a1a;
+    border-style: solid;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.flash-message-err {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    transform: translate(-50%, -50%);
+    background-color: red;
+    border: 1px #1a1a1a;
+    border-style: solid;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    z-index: 1000;
+}

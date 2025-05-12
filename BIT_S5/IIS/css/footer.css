@@ -1,0 +1,15 @@
+.help {
+    flex: 1;
+    min-height: 80vh;
+}
+
+.footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    font-size: 12px;
+    margin-top: auto;
+    /* Push the footer to the bottom */
+    width: 100% - 5px;
+}

@@ -1,0 +1,128 @@
+Architektury Výpočetních Systémů (AVS 2024)
+Projekt č. 2 (PMC)
+Login: xlogin00
+
+Úloha 1: Paralelizace původního řešení
+===============================================================================
+1) Kterou ze smyček (viz zadání) je vhodnější paralelizovat a co způsobuje 
+   neefektivitu paralelizaci té druhé?
+   
+-  Je lepší paralelizovat smyčku průchodu mřížkou. Tato smyčka je ve vyšší úrovni a tím
+   pádem je vnější a obecně platí, že je lepší paralelizovat vnější smyčky. Paralelizaci
+   vnitřní smyčky je taky možné zpomalení, při větší režii při vytváření vláken. Smyčka
+   ve funkci marchCubes má nezávislé iterace, což je ideální pro paralelizaci. Smyčka ve
+   funkci evaluateFieldAt taky není vhodna k paralelizaci, kvůli špatné lokalitě dat.
+
+2) Jak jste ve funkci LoopMeshBuilder::marchCubes zajistili správný výsledek 
+  (počet trojúhelníků) vrácený touto funkcí? Popište jaké řešení jste zvolili a proč.  
+
+-  Toto je zajištěno pomocí parametru reduction(op: list). V tomto jsem specifikoval operaci
+   plus a jako proměnnou dal totalTriangles. Tímto se po dokončení bloku paralelizce všechny
+   tyto proměnné sečtou do jedné bez jakékoliv race condition. To je zařízeno tím, že každé
+   vlákno má svou kopii proměnné a na konci jsou všechny tyto hodnoty sečteny.
+
+3) Jaké plánování (rozdělení práce mezi vlákna) jste zvolili a proč? Popište, na
+   jakých datech (počet vláken, velikost problému) jste k závěrům došli. 
+
+-  Testoval jsem - static a dynamic, na různých velikostech "chunk" - 1, 8, 16, 32.
+   Žádný větší rozdíl jsem nepozoroval, zvolil jsem teda nakonec default možnost static.
+   Toto rozhodnutí jsem si odůvodnil tím, že složitost jednotlivých iterací je podobná.
+
+Úloha 2: Paralelní průchod stromem
+===============================================================================
+1) Stručně popište použití OpenMP tasků ve vašem řešení. 
+
+-  Ve for loopu generuji polohy dětí a pouštím na ně tasky. Tasky mají společnou proměnnou localTriangles.
+   Ta se přepisuje za použití atomic update, která zajišťuje atomicitu operací. Poté používám ještě jednu
+   synchronizační direktivu - taskwait. Ten se používá před vrácením finální hodnoty, která musí počkat
+   na dopracovaní všech vytvořených tasků.
+
+2) Jakou hodnotu cut-off jste zvolili? Jaké hodnoty "cut-off" jste zkoušeli, 
+   na jak velkých velikostech problému a jakých času jste dosáhli? 
+   Odůvodněte vaši volbu.
+
+-  TASK_CREATION_CUT_OFF - hodnota, při které se přestanou vyrábět nové tasky a začne se počítat sekvenčně
+   jsem zvolil jako 4. Zkoušel jsem různé velikosti gridů - 32,64,128 i různé počty vláken - 18,36. Zkusil
+   jsem různé velikosti této proměnné - 0,2,4,8,16,32. Obecně nejlépe vycházely velikosti 2 a 4, které byly podobné.
+   Problém nastal u 128 vláken, tam je nejlepší hodnota 0, proto je tato část kódu zakomentovaná.
+-  Poté ještě používám SIZE_CUTOFF tu jsem nastavil na 1. Tento CUT_OFF označuje kdy se přestanou vyrábět nové
+   krychle. Jiné velikosti způsobují deformace.
+
+3) Jakým způsobem zajišťujete ukládání trojúhelníků z několika vláken současně 
+   v metodě LoopMeshBuilder::emitTriangle?
+
+-  Přidáním sekce omp critical kolem operace push_back(triangle). Tímto se zaručuje správnost používání této funkce,
+   kdy pouze jedno vlákno může přistoupit k dané části kódu. 
+
+
+Úloha 3: Grafy škálování všech řešení
+===============================================================================
+
+1) Stručně zhodnoťte efektivitu vytvořených řešení 
+   (na základě VŠECH odevzdaných grafů ŠKÁLOVÁNÍ).
+
+-  Vzhledem k grafu škálování, jde vidět že od určité velikosti je stromový
+   algoritmus efektivnější a stoupá o něco pomaleji než loop, ale v případě
+   menší mřížky to je naopak. Oba rostou přibližně lineárně.
+-  V grafu silného škálování je vidět, že stromový algoritmus je lepší ve všech
+   testovaných případech.
+-  V grafu slabého škálování je vidět, že s roustoucím počtm vláken roste i zátěž
+   na každé vlákno. U loopu se tento problém nezdá tak dramatický.
+
+2) V jakém případě (v závislosti na počtu bodů ve vstupním souboru a velikosti 
+   mřížky) bude vaše řešení 1. úlohy neefektivní? 
+   (pokud takový případ existuje a je vidět ve vašem grafu)
+
+-  Tento případ může nastat při menším vstupu a velkém počtu jader.
+
+3) Je (nebo není) stromový algoritmus efektivnější z pohledu slabého škálování 
+   vzhledem ke vstupu?
+-  Není. Tento algoritmus neškáluje dobře při menším vstupu. Z grafu jde vyčíst, že
+   loop verze škáluje o něco lépe, takže teoreticky po přidání dostatečného počtu
+   vláken by loop byl efektivnější.
+
+4) Do souboru 3_4.txt napište svůj login, který používáte na Barboře, na druhý
+   řádek napište počet úloh (jobs), které jste spustili za dobu řešení projektu 2
+   a na třetí řádek uveďte, kolik času tyto úlohy běžely (formát HH:MM:SS). 
+   V souboru 3_4.txt využijte předpřipravené kostry - údaje přepište. Můžete využít
+   údajů ze Slurm plánovače, nepočítejte úlohy se suffixem (přepínač -X).
+
+
+Úloha 4: Analýza využití jader pomocí VTune
+================================================================================
+
+1) Jaké bylo průměrné využití jader pro všechny tři implementace s omezením na 
+   18 vláken? Hodnoty zapište do souboru 4_1.txt
+   (využijte předpřipravené kostry v souboru - čísla přepište).
+   
+   ref:
+   loop:
+   tree:
+
+-  Tady byly hodnoty velice nerozeznatelně stejné všechny, ale udělal jsem průměr
+   ze 4 měření.
+
+2) Jaké bylo průměrné využití jader pro všechny tři implementace s využitím 
+   všech jader? Hodnoty zapište do souboru 4_2.txt (využijte předpřipravené 
+   kostry v souboru - čísla přepište).
+   
+   ref:
+   loop:
+   tree:
+
+-  Tady byly ty hodnoty konstantní až na tree, který sem tam ustřelil klidně na trojnásobné
+   hodnoty. Takže hodnoty zde jsou zprůměrovány ze 4 měření.
+
+3) Vypočítejte efektivitu vašeho řešení loop a tree vůči ref pro 18 a 36 vláken. 
+   Hodnoty naměřte ručně na výpočetním uzlu, ne přes VTune. Použijte následující parametry:
+   
+   ./PMC --builder {ref, tree, loop} -t {18, 36} --grid 128 ../data/bun_zipper_res3.pts 
+   
+   Hodnoty zapište do souboru 4_3.txt 
+   (využijte předpřipravené kostry v souboru - čísla přepište):
+   "loop (18)" vs. "ref"
+   "tree (18)" vs. "ref"
+   "loop (36)" vs. "ref"
+   "tree (36)" vs. "ref"
+
+-  Zde byly hodnoty zprůměrovány z 10 měření pro každou hodnotu.

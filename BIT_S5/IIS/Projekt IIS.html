@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-2" />
+	<title>Projekt IIS</title>
+	<style type="text/css">
+		table {
+			border-collapse: collapse;
+		}
+
+		td,
+		th {
+			border: 1px solid black;
+			padding: 0.3em 0.5em;
+			text-align: left;
+		}
+
+		dt {
+			font-weight: bold;
+			margin-top: 0.5em;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1>IoT: správa zařízení</h1>
+
+	<dl>
+		<dt>Autoři</dt>
+		<dd>Alexej Beňuš
+			<a href="mailto:xbenus01@stud.fit.vutbr.cz">xbenus01@stud.fit.vutbr.cz</a> -
+			FE, BE, návrh, dokumentace, admin
+		</dd>
+		<dd>Patrik Olszar
+			<a href="mailto:xolsza00@stud.fit.vutbr.cz">xolsza00@stud.fit.vutbr.cz</a> -
+			DB, BE, návrh, testování, broker
+		</dd>
+		<dt>URL aplikace</dt>
+		<dd><a href="https://iis.eunion.cz">https://iis.eunion.cz</a></dd>
+	</dl>
+
+	<h2>Uživatelé systému pro testování</h2>
+	<table>
+		<tr>
+			<th>Login</th>
+			<th>Heslo</th>
+			<th>Role</th>
+		</tr>
+		<tr>
+			<td>xbenus01@stud.fit.vutbr.cz</td>
+			<td>admin</td>
+			<td>Administrátor</td>
+		</tr>
+		<tr>
+			<td>xolsza00@stud.fit.vutbr.cz</td>
+			<!-- Na videu se ukazuje tento admin a ne benus, proto jsem napsal oba-->
+			<td>admin</td>
+			<td>Administrátor</td>
+		</tr>
+		<tr>
+			<td>peza@zdepa.cz</td>
+			<!-- mělo to být vtipné pepa z depa ale kolega to ... a další db dump kvůli něho dělat nebudu-->
+			<td>uzivatel</td>
+			<td>Uživatel</td>
+		</tr>
+		<tr>
+			<td>broker@broker.cz</td>
+			<td>broker</td>
+			<td>Broker</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td>Nepřihlášený uživatel</td>
+		</tr>
+	</table>
+
+	<h3>Video</h3>
+
+	<p>https://drive.google.com/drive/folders/1K7Snuh161ZHsNzGBZ2e7_Va3hCdDwojK?usp=sharing</p>
+
+	<h2>Implementace</h2>
+	<p>Rozhodli jsme se pro použití framworku Laravel. Také používáme Breeze k autentizaci. Na fóru bylo řečeno, že je
+		použití Breeze na hraně, nicméně myslíme si, že jsme jej využili správně, takže snad nebude použtí problém.</p>
+	<p>Snažili jsme se odevzdané soubory rozsložkovat tak, aby bylo jasné k čemu jsou.</p>
+	<p>Ve složce Views jsou všechny soubory ke zobrazení. Dále se dělí na podsložky hlavní je asi složka system - zde
+		jsou jednotlivé výpisy pro procházení systémů, moje systémy a nebo detail systému. Dále je zde složka na
+		zařízení nebo třeba kpi</p>
+	<p>Models používáme k vytvoření vztahů mezi tabulkami</p>
+	<p>Ve složce controllers jsou kontrolery, které manipulují s daty </p>
+	<p>Ve složce routes jsou routy, které říkají jaké url se má použít pro který controller a funkci.</p>
+	<p>Slouží ke generování hodnot do tabulek.</p>
+	<p>Slouží k vytvoření samotných tabulek databázového systému.</p>
+
+
+	<h3>Databáze</h3>
+
+	<img src="./database.png" alt="Databáze" width="750px" height="
+	750px" />
+	<h2>Instalace</h2>
+
+	<ul>
+		<li>Na server je možné připojení pouze FTP tzn nelze spouštět scripty.</li>
+		<li>Vzhledem k vlastní doméně bylo nutné vygenerovat certifikovat pro subdoménu. Také je třeba vygenerovat
+			šifrovací klíč aplikace.</li>
+		<li>Je potřeba poupravit .htaccess aby odpovídalo nastavení serveru.</li>
+		<li>Sw požadavky: https://laravel.com/docs/10.x/deployment#server-requirements</li>
+		<li>Databáze se inicializuje a zaplňuje pomocí commandu - php artisan migrate:refresh --seed, nicméně v našem
+			případě se to musí udělat lokálně a poté udělat db dump na server.</li>
+	</ul>
+
+	<h2>Známé problémy</h2>
+	<p>V projektu jsme stihli skoro vše. Ze zadání nám chybí pouze adminova možnost editace users a poslání žádosti o
+		sdíléní systému(nicméně možnost sdílení funguje, ale musí jí inicializovat správce systému ne uživatel). Všechny
+		ostatní hlavní funkčnosti tam jsou, nicméně máme nějaké QoL chyby, případně věci co nebyly přímo ve specifikaci
+		zadání, ale může se nad něma uvažovat: Ve formu pro přidání KPI lze vybrat parametry u zařízení které jej
+		nemají, nicméně do databáze přidat nejdou vyhodí to error, ale tohle je spíše chyba pro ITU.</p>
+	<p></p>
+
+</body>
+
+</html>
