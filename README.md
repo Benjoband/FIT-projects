@@ -1,12 +1,31 @@
-# 🏛️ BUT FIT Projects
+# BUT FIT Projects
+
+## About
+This repository contains most of the projects I made during my studies at FIT BUT and feel proud about. They cover many different languages and application all summarized below. Some team projects are not yet posted as I did not get permission from my teammates yet. Some team projects are already posted and marked as team projects and teammates are tagged.
+
+- **Languages:** C, C++, Python, PHP, Haskell, Prolog, JavaScript, HTML/CSS
+- **Frameworks & Tools:** Laravel, MPI, OpenMP, SFML, SIMLIB, ESP-IDF
+- **Concepts:** Web development, embedded systems, machine learning, parallel computing, neural networks, data analysis, simulation, compiler design
+
+## 📆 Timeline
+- **BIT (Bachelor):** 2021 – 2024
+- **MIT (Master):** 2024 – present
+
 ## Structure
+Each entry includes the project name, short description, programming languages used, and the score received.
 
 - **BIT** – Bachelor of Information Technology
-  - 6 semesters, first 2 are missing because data is not available for download any more, because of stopped support for old faculty system WIS
+  - six semesters, first two are missing because data is not available for download any more, because of stopped support for old faculty system WIS, 3rd and 4th not yet published
 - **MIT** – Master of Information Technology
-  - 4 semesters (probably)
----
+  - four semesters, first one already complete with all programming projects, second one will be filled after the end of the semester
 
+---
+## Notable projects
+ - IMS - SHO Logistics Model – Distribution/Transport of Goods and Materials
+ - FYO - Fiber Optics
+ - TOI - Analysis of time series data
+
+---
 ## Semesters Overview
 
 ### BIT-S4 – Bachelor, Semester 4
@@ -23,7 +42,7 @@
 
 ### BIT-S5 – Bachelor, Semester 5
 #### IIS - Informační systémy / Information Systems
-- Project done in team with github.com/Omegabee
+- Project done in team with [Omegabee](https://github.com/Omegabee)
 - **Project: Smart Device Management System**
   - _Description:_ The goal of this project is to develop a simple information system for managing smart devices and evaluating their sensor data.
   - _Languages:_ PHP, HTML, CSS, Laravel
@@ -36,7 +55,7 @@
   - _Score:_ 12/14
 
 #### IMS - Modelování a simulace / Modelling and Simulation
-- Project done in team with github.com/Omegabee
+- Project done in team with [Omegabee](https://github.com/Omegabee)
 - **Project: SHO Logistics Model – Distribution/Transport of Goods and Materials**
   - _Description:_ Data collection and modelling of railway network from Mosty u Jablunkova - Ostrava. Experimenting with possible improvements
   - _Languages:_ C++, SIMLIB
@@ -61,7 +80,7 @@
   - _Score:_ 12/12
 
 #### SUI - Umělá inteligence a strojové učení / Artificial Intelligence and Machine Learning
-- All projects done in team with github.com/Omegabee
+- All projects done in team with [Omegabee](https://github.com/Omegabee)
 - **Project 1: Predicting Dicewars Game Outcomes Using Binary Classification**
   - _Description:_ Evaluating binary classification models to predict the outcome of the board game Dicewars based on game state features.
   - _Languages:_ Python, NumPy, SciPy, Matplotlib

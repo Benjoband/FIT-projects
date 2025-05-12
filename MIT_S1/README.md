@@ -17,7 +17,7 @@
   - _Score:_ 12/12
 
 ## SUI - Umělá inteligence a strojové učení / Artificial Intelligence and Machine Learning
-- All projects done in team with github.com/Omegabee
+- All projects done in team with [Omegabee](https://github.com/Omegabee)
 - **Project 1: Predicting Dicewars Game Outcomes Using Binary Classification**
   - _Description:_ Evaluating binary classification models to predict the outcome of the board game Dicewars based on game state features.
   - _Languages:_ Python, NumPy, SciPy, Matplotlib
