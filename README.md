@@ -39,8 +39,11 @@ Each entry includes the project name, short description, programming languages u
   - _Languages:_ Python 3.10
   - _Score:_ 7/12
 
-### ICP - 
-
+### ICP - Seminář C++ / The C++ Programming Language
+- **Project: Pacman using QT framework** 
+  - _Description:_ Using QT make multiplayer adaptation of Pacman game. It is realised using client-server model.
+  - _Languages:_ C++, QT (Networking and graphics)
+  - _Score:_ 80/100
 
 ### BIT-S5 – Bachelor, Semester 5
 #### IIS - Informační systémy / Information Systems
