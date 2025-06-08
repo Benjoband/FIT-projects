@@ -4,7 +4,7 @@
 This repository contains most of the projects I made during my studies at FIT BUT and feel proud about. They cover many different languages and application all summarized below. Some team projects are not yet posted as I did not get permission from my teammates yet. Some team projects are already posted and marked as team projects and teammates are tagged.
 
 - **Languages:** C, C++, Python, PHP, Haskell, Prolog, JavaScript, HTML/CSS
-- **Frameworks & Tools:** Laravel, MPI, OpenMP, SFML, SIMLIB, ESP-IDF
+- **Frameworks & Tools:** Laravel, MPI, OpenMP, SFML, SIMLIB, ESP-IDF, QT
 - **Concepts:** Web development, embedded systems, machine learning, parallel computing, neural networks, data analysis, simulation, compiler design
 
 ## 📆 Timeline
@@ -21,9 +21,10 @@ Each entry includes the project name, short description, programming languages u
 
 ---
 ## Notable projects
- - IMS - SHO Logistics Model – Distribution/Transport of Goods and Materials
- - FYO - Fiber Optics
- - TOI - Analysis of time series data
+ - ICP - Multiplayer Pacman - C++ and QT
+ - IMS - SHO Logistics Model – Distribution/Transport of Goods and Materials - C++ + SIMLIB
+ - FYO - Fiber Optics - Python
+ - TOI - Analysis of time series data - Python
 
 ---
 ## Semesters Overview
