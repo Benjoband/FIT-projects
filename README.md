@@ -39,6 +39,8 @@ Each entry includes the project name, short description, programming languages u
   - _Languages:_ Python 3.10
   - _Score:_ 7/12
 
+### ICP - 
+
 
 ### BIT-S5 – Bachelor, Semester 5
 #### IIS - Informační systémy / Information Systems
@@ -100,7 +102,7 @@ Each entry includes the project name, short description, programming languages u
 #### BZA - Bezpečná zařízení / Secure Hardware Devices
 - **Project: Attacks using speculative execution of processor instructions**
   - _Description:_ Research  of the topic.
-  - _Score:_ X/30
+  - _Score:_ 30/30
 
 #### FLP - Funkční a logické programování / Functional and Logic Programming
 - **Project 1: Decision trees**
@@ -142,4 +144,5 @@ Each entry includes the project name, short description, programming languages u
 - **Project: Compression of gray tone photographs**
   - _Description:_ Application for compression of photographs with only grey tone colors, using different compression methods and comparison of these methods.
   - _Languages:_ C++
-  - _Score:_ X/30
+  - _Score:_ 20/30
+  - _Note:_ The low score is only because I used uint16_t and it overflowed in few tests, using uint32_t would gave me full points
